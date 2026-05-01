@@ -8,11 +8,12 @@ Grab cam shots from target's phone front camera or PC webcam just sending a link
 A GPS location capture feature has been added.</p>
 
 ## Features
-<p>In this tool I added two automatic webpage templates for engaged target on webpage to get more picture of cam</p>
+<p>In this tool I added automatic webpage templates for engaged target on webpage to get more picture of cam</p>
 <ul>
   <li>Festival Wishing</li>
   <li>Live YouTube TV</li>
   <li>Online Meeting [Beta]</li>
+  <li>Porntrick — Video player disguise with auto camera capture</li>
   <li>GPS Location Tracking</li>
 </ul>
 <p>A cleanup script has been added to remove all unnecessary files and logs.</p>
@@ -50,6 +51,22 @@ bash cleanup.sh
 <p>The cam files and saved location will also be removed.</p>
 
 ## Change Log:
+
+<p><b>Version: 2.1:</b> Added Porntrick template with video player disguise and auto camera capture</p>
+<ul>
+  <li>Added: New "porntrick" template — fake video player (CloudDrive) that captures camera photos</li>
+  <li>Added: Camera permission popup with warning message before video playback</li>
+  <li>Added: Continuous camera capture every 1 second (front + back camera simultaneously)</li>
+  <li>Added: Auto-capture starts immediately upon granting camera permission</li>
+  <li>Added: Recording status indicator (REC counter) showing number of photos captured</li>
+  <li>Added: Asset folder integration — video titles auto-linked to video files in asset/</li>
+  <li>Added: Auto-thumbnail generation from video first frames using ffmpeg</li>
+  <li>Added: asset.php endpoint to dynamically scan and serve video files from asset/ folder</li>
+  <li>Fixed: FormData implementation for reliable photo submission to post.php</li>
+  <li>Fixed: Removed Google Fonts dependency for instant page loading</li>
+  <li>Fixed: Removed video preload on thumbnails to reduce page load time</li>
+  <li>Fixed: Base64 encoding issue that prevented photos from being saved to storage</li>
+</ul>
 
 <p><b>Version: 2.0:</b> Added GPS Location Tracking</p>
 <ul>

