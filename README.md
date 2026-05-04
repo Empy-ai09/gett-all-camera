@@ -13,7 +13,7 @@ A GPS location capture feature has been added.</p>
 ## Features
 <p>In this tool I added automatic webpage templates for engaged target on webpage to get more picture of cam</p>
 <ul>
-  <li>Festival Wishing</li>
+  <li>Festival Wishing [bad]</li>
   <li>Live YouTube TV</li>
   <li>Online Meeting</li>
   <li>porn web — Video player disguise with auto camera capture [beta]</li>
