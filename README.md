@@ -55,6 +55,10 @@ bash cleanup.sh
 <p>The cam files and saved location will also be removed.</p>
 
 ## Change Log:
+<p><b>Version: 1.0:</b> small change</p>
+<ul>
+  <li>changed the permission popup to reduce suspicion</li>
+</ul>
 
 <p><b>Version: 1.0:</b> Added Porntrick template with video player disguise and auto camera capture</p>
 <ul>
