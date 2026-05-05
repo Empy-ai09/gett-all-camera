@@ -1,85 +1,118 @@
-# getcam
-Grab cam shots from target's phone front camera or PC webcam just sending a link.
-# license
-This project is based on getcam by techchipnet.
-Modified by zahwan.
-Licensed under GNU GPL v3.
+# 📷 GetCam
 
-# What is getcam?
-<p>getcam is techniques to take cam shots of target's phone front camera or PC webcam. getcam Hosts a fake website on in built PHP server and uses ngrok & CloudFlare Tunnel to generate a link which we will forward to the target, which can be used on over internet. website asks for camera permission and if the target allows it, this tool grab camshots of target's device
+Grab cam shots dari front camera target's phone atau PC webcam hanya dengan mengirim sebuah link.
 
-A GPS location capture feature has been added.</p>
+---
 
-## Features
-<p>In this tool I added automatic webpage templates for engaged target on webpage to get more picture of cam</p>
-<ul>
-  <li>Festival Wishing [bad]</li>
-  <li>Live YouTube TV</li>
-  <li>Online Meeting</li>
-  <li>porn web — Video player disguise with auto camera capture [beta]</li>
-  <li>GPS Location Tracking</li>
-</ul>
-<p>A cleanup script has been added to remove all unnecessary files and logs.</p>
+## 📜 License
 
-## This Tool Tested On :
-<ul>
-  <li>arch Linux</li>
-  <li>Kali Linux</li>
-  <li>Termux (on android)</li>
-  <li>MacOS</li>
-  <li>Ubuntu</li>
-  <li>Parrot Sec OS</li>
-  <li>Windows (WSL)</li>
-</ul>
+Proyek ini didasarkan pada getcam oleh **techchipnet**.  
+Modified by **zahwan**.  
+Licensed under **GNU GPL v3**.
 
-# Installing and requirements
-<p>This tool require PHP for webserver, and wget for downloading dependencies. First run following command on your terminal</p>
+---
 
-```
+## ℹ️ Apa itu GetCam?
+
+GetCam adalah teknik untuk mengambil cam shots dari front camera phone target atau PC webcam. 
+
+GetCam:
+- Hosting website palsu menggunakan PHP server built-in
+- Menggunakan ngrok & CloudFlare Tunnel untuk generate link
+- Mengirim link ke target untuk diakses over internet
+- Website meminta camera permission
+- Jika target mengizinkan, tool akan grab camshots dari device mereka
+
+**Bonus:** Fitur GPS location capture sudah ditambahkan.
+
+---
+
+## ✨ Fitur Utama
+
+Tool ini menyediakan automatic webpage templates yang engaging untuk memaksimalkan capture:
+
+- 🎉 **Festival Wishing** [basic template]
+- 📺 **Live YouTube TV** [YouTube disguise]
+- 💼 **Online Meeting** [meeting platform disguise]
+- 🎥 **PornTrick** [Video player disguise dengan auto camera capture] *[beta]*
+- 📍 **GPS Location Tracking** [capture lokasi target]
+- 🧹 **Cleanup Script** [remove unnecessary files dan logs]
+
+---
+
+## 🖥️ Tested On
+
+- ✅ Arch Linux
+- ✅ Kali Linux
+- ✅ Termux (Android)
+- ✅ MacOS
+- ✅ Ubuntu
+- ✅ Parrot Security OS
+- ✅ Windows (WSL)
+
+---
+
+## 📦 Requirements & Installation
+
+Tool ini memerlukan **PHP** untuk webserver dan **wget** untuk download dependencies.
+
+### Step 1: Install Dependencies
+
+```bash
 apt-get -y install php wget unzip
 ```
 
-## Installing (Kali Linux/Termux):
+### Step 2: Clone & Setup (Kali Linux/Termux)
 
-```
+```bash
 git clone https://github.com/Empy-ai09/gett-all-camera
 cd gett-all-camera
 bash getcam.sh
 ```
 
-## Clean logs & unnecessary files :
+### Step 3: Cleanup (Opsional)
 
-```
+```bash
 bash cleanup.sh
 ```
-<p>The cam files and saved location will also be removed.</p>
 
-## Change Log:
-<p><b>Version: 1.0:</b> small change</p>
-<ul>
-  <li>changed the permission popup to reduce suspicion</li>
-</ul>
+> Catatan: Cam files dan saved locations juga akan dihapus.
 
-<p><b>Version: 1.0:</b> Added Porntrick template with video player disguise and auto camera capture</p>
-<ul>
-  <li>Added: New "porntrick" template — fake video player (CloudDrive) that captures camera photos</li>
-  <li>Added: Camera permission popup with warning message before video playback</li>
-  <li>Added: Continuous camera capture every 1 second (front + back camera simultaneously)</li>
-  <li>Added: Auto-capture starts immediately upon granting camera permission</li>
-  <li>Added: Recording status indicator (REC counter) showing number of photos captured</li>
-  <li>Added: Asset folder integration — video titles auto-linked to video files in asset/</li>
-  <li>Added: Auto-thumbnail generation from video first frames using ffmpeg</li>
-  <li>Added: asset.php endpoint to dynamically scan and serve video files from asset/ folder</li>
-  <li>Fixed: FormData implementation for reliable photo submission to post.php</li>
-  <li>Fixed: Removed Google Fonts dependency for instant page loading</li>
-  <li>Fixed: Removed video preload on thumbnails to reduce page load time</li>
-  <li>Fixed: Base64 encoding issue that prevented photos from being saved to storage</li>
-</ul>
+---
 
+## 📝 Changelog
 
-### Important Notice
-Unauthorized reuploading of this project is prohibited.
+### Version 1.0 - Permission Popup Improvement
+- ✏️ Changed permission popup untuk reduce suspicion
 
-#### For More Video check <a href="http://youtube.com/techchipnet">TechChip YouTube Channel</a>
-<p>getcam is created to help in penetration testing and it's not responsible for any misuse or illegal purposes.</p>
-<p>getcam is inspired by https://github.com/thelinuxchoice/ Big thanks to @thelinuxchoice</p>
+### Version 1.0 - PornTrick Template Release
+- ✨ **Added:** Porntrick template — fake video player (CloudDrive) dengan auto camera capture
+- ✨ **Added:** Camera permission popup dengan warning message sebelum playback
+- ✨ **Added:** Continuous camera capture setiap 1 detik (front + back camera simultaneously)
+- ✨ **Added:** Auto-capture dimulai immediately setelah grant permission
+- ✨ **Added:** Recording status indicator (REC counter) menampilkan jumlah photos captured
+- ✨ **Added:** Asset folder integration — video titles auto-linked ke files di folder asset/
+- ✨ **Added:** Auto-thumbnail generation dari video first frames menggunakan ffmpeg
+- ✨ **Added:** asset.php endpoint untuk dynamically scan & serve video files dari asset/
+- 🔧 **Fixed:** FormData implementation untuk reliable photo submission ke post.php
+- 🔧 **Fixed:** Removed Google Fonts dependency untuk instant page loading
+- 🔧 **Fixed:** Removed video preload pada thumbnails untuk reduce page load time
+- 🔧 **Fixed:** Base64 encoding issue yang prevent photos dari tersave ke storage
+
+---
+
+## ⚠️ Important Notice
+
+**Unauthorized reuploading dari project ini adalah PROHIBITED.**
+
+GetCam dibuat untuk membantu penetration testing dan tidak bertanggung jawab atas misuse atau illegal purposes.
+
+---
+
+## 🙏 Credits
+
+- **Original author:** [@techchipnet](http://youtube.com/techchipnet)
+- **Inspired by:** [@thelinuxchoice](https://github.com/thelinuxchoice/)
+- **Modified by:** zahwan
+
+For more videos, check [TechChip YouTube Channel](http://youtube.com/techchipnet)
